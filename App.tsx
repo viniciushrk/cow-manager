@@ -1,36 +1,68 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import cow from './assets/takenbro.png';
+import { SafeAreaView, ScrollView, StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import BottomNavigation from './src/components/BottomNavigation/BottomNavigation';
+import CardCow from './src/components/CardCow/CardCow';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
+  const clickHandler = () => {
+    
+  };
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Elevando o gerenciamento do seu gado.</Text>
-      <Image source={cow}  />
-      <TouchableOpacity style={styles.button}/>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrolls}>
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+        <CardCow />
+      </ScrollView>
+      
+      <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={clickHandler}
+          style={styles.touchableOpacityStyle}>
+          <Ionicons name="add-outline" size={30} color="white" />
+        </TouchableOpacity>
+     <BottomNavigation />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'column',
-    backgroundColor: '#3A7660',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
   },
-  title:{
-    fontWeight:'bold',
-    fontSize:24,
-    color:"white",
-    paddingHorizontal:20
+  scrolls: {
+    marginTop:50,
+    width:'100%',
+    paddingHorizontal:10
   },
-  button:{
-    backgroundColor: '#3FE280',
-    width:56,
-    height:56,
-    borderRadius:5
-  }
+  touchableOpacityStyle: {
+    backgroundColor:'#000',
+    position: 'absolute',
+    borderRadius:10,
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 20,
+    bottom: 80,
+  },
+  floatingButtonStyle: {
+    resizeMode: 'contain',
+    width: 50,
+    height: 50,
+  },
 });
